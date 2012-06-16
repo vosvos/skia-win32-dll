@@ -21,8 +21,8 @@ Chromium instructions (could be helpful): http://www.chromium.org/developers/how
 You could use files from this archive or update files from:
 http://src.chromium.org/viewvc/chrome/trunk/src/  
 Changes from original files:  
-    *Calls to debug and logging header files are commented out (debugger.h,trace_event.h,logging.h).  
-    *Fixed paths to skia header files.
+* Calls to debug and logging header files are commented out (debugger.h,trace_event.h,logging.h).  
+* Fixed paths to skia header files.
 
 5. Copy skia_dll_msvs2010e.py and /win32_app to main skia folder
 
