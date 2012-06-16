@@ -27,10 +27,10 @@ Changes from original files:
 5. Copy skia_dll_msvs2010e.py and /win32_app to main skia folder
 
 6. Generate VisualStudio project files:
-    >python skia_dll_msvs2010e.py
+    >python skia_dll_msvs2010e.py  
 This script joins separate Skia .gyp files into one .gyp for shared lib (dll).
 And creates win32_app.gyp and skia_win32.gyp files
 
-7. Open /out/skia_win32.sln, set win32_app as "StartUp Project".
-Remove project (core) as it's not required anymore (included by sfnt.gyp from Skia build files)
+7. Open /out/skia_win32.sln, set win32_app as "StartUp Project".  
+Remove project (core) as it's not required anymore (included by sfnt.gyp from Skia build files)  
 Build the solution and run sample app!
