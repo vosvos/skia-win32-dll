@@ -7,10 +7,10 @@ and sample app.
 Build instructions for msvs2010e.
 
 1. Install Microsoft Visual Studio 2010e.
-Instructions for skia:
-    https://sites.google.com/site/skiadocs/user-documentation/quick-start-guides/windows
-Chromium instructions (could be helpful):
-    http://www.chromium.org/developers/how-tos/build-instructions-windows
+	Instructions for skia:
+	https://sites.google.com/site/skiadocs/user-documentation/quick-start-guides/windows
+	Chromium instructions (could be helpful):
+	http://www.chromium.org/developers/how-tos/build-instructions-windows
 
 2. Install GYP (-r 1415).
     >svn checkout http://gyp.googlecode.com/svn/trunk/ gyp-read-only
