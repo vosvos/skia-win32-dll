@@ -17,7 +17,7 @@ Chromium instructions (could be helpful): http://www.chromium.org/developers/how
 3. Checkout skia sources (-r 4270).
     >svn checkout http://skia.googlecode.com/svn/trunk/ skia-read-only
     
-4. Copy required chromium files (/ext, /build, /base) to main skia folder.
+4. Copy required chromium files (/ext, /build, /base) to main skia folder.  
 You could use files from this archive or update files from:
 http://src.chromium.org/viewvc/chrome/trunk/src/  
 Changes from original files:  
@@ -28,6 +28,7 @@ Changes from original files:
 
 6. Generate VisualStudio project files:
     >python skia_dll_msvs2010e.py  
+
 This script joins separate Skia .gyp files into one .gyp for shared lib (dll).
 And creates win32_app.gyp and skia_win32.gyp files
 
