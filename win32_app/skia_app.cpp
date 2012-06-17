@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     wcex.hInstance      = hInstance;                    /* Windows uses this to keep track of multiple instances of this program with the same window class name.                    */
     //wcex.hbrBackground  = (HBRUSH)(COLOR_BACKGROUND);    /* This is the background color to use for this window. It conforms to custom window background colors defined by the user    */
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszClassName  = L"minwindowsapp";                /* This is the base name of this type of a window, and can be reused to create the same 'style' windows easier again.        */
+    wcex.lpszClassName  = L"minwindowsapp";                /* This is the base name of this type of a window, and can be reused to create the same 'style' windows easier again.        */
     if( FAILED(RegisterClassEx(&wcex)) )                /* This asks the operating system if it has resources to allow us to register a new 'style' of a window to be used.            */
         return 1;                                        /* If there were no resources available, the program will terminate by returning the number 1. (0 usually means success)    */
 
@@ -46,23 +46,23 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 void DoPaint (HWND hwnd)
 {
-	skia::PlatformCanvasPaint canvas (hwnd); // opaque false - 
-	/*http://www.chromium.org/developers/design-documents/graphics-and-skia
-	The case of the disappearing alpha
-	Windows causes some problems by not knowing about the alpha channel. When rendering text, it 
-	inconveniently sets the alpha channel to 0 (transparent). This makes black text fully transparent, 
-	and white text becomes "interesting" because the color values are not value premultiplied colors. 
-	We have two approaches to dealing with this, one for the Webkit port, and the other for the UI. 
-	We may merge or enhance these in the future.
-	*/
+    skia::PlatformCanvasPaint canvas (hwnd); // opaque false - 
+    /*http://www.chromium.org/developers/design-documents/graphics-and-skia
+    The case of the disappearing alpha
+    Windows causes some problems by not knowing about the alpha channel. When rendering text, it 
+    inconveniently sets the alpha channel to 0 (transparent). This makes black text fully transparent, 
+    and white text becomes "interesting" because the color values are not value premultiplied colors. 
+    We have two approaches to dealing with this, one for the Webkit port, and the other for the UI. 
+    We may merge or enhance these in the future.
+    */
 
     if (canvas.isEmpty ())
         return;
-	
+
     canvas.save();
     canvas.drawARGB (255, 255, 255, 255); // Fill with white.
     
-	canvas.rotate(SkIntToScalar (46));
+    canvas.rotate(SkIntToScalar (46));
 
     // Make a rect from (100,0) to (200,75).
     SkRect rect;
@@ -101,19 +101,19 @@ void DoPaint (HWND hwnd)
     canvas.save();
     canvas.rotate(SkIntToScalar (-15));
 
-	//Turn AntiAliasing On
+    //Turn AntiAliasing On
     paint.setAntiAlias(true);
     paint.setLCDRenderText(true);
-	paint.setSubpixelText(true);
+    paint.setSubpixelText(true);
     paint.setTypeface(SkTypeface::CreateFromName("arial", SkTypeface::kNormal));
 
     //Set Text Size
     paint.setTextSize(SkIntToScalar(64));
-    paint.setLooper (&dl);
+    //paint.setLooper (&dl); // causes runtime error in Debug version (Release works)
     canvas.drawText("Rotated Text", 12, SkIntToScalar(0), SkIntToScalar(400), paint);
     canvas.restore();
 
-	
+
     SkPath curves;
     curves.moveTo(30, 30);
     curves.cubicTo(30, 5, 50, 5, 50, 30);
@@ -125,8 +125,8 @@ void DoPaint (HWND hwnd)
     paint2.setStrokeWidth(1);
     paint2.setColor(SK_ColorRED);
 
-	canvas.save();
-	canvas.translate(100,100);
+    canvas.save();
+    canvas.translate(100,100);
     canvas.scale(2 * SK_Scalar1, 2 * SK_Scalar1);
     canvas.drawPath(curves, paint2);
     canvas.restore();

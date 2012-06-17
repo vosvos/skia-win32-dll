@@ -31,6 +31,7 @@ Changes from original files:
 
     This script joins separate Skia .gyp files into one .gyp for shared lib (dll).
     And creates win32_app.gyp and skia_win32.gyp files
+    Modify "skia_dll_config" dependencies to add (gpu, images, etc)
 
 7. Open /out/skia_win32.sln, set win32_app as "StartUp Project".  
 Remove project (core) as it's not required anymore (included by sfnt.gyp from Skia build files)  
